@@ -68,12 +68,21 @@
 <ion-content padding>
   <ion-item>
     <label>Data: </label>
-    <ion-input type="date" color="medium" class="ion-margin"> </ion-input>
+    <ion-input
+      type="date"
+      color="medium"
+      class="ion-margin"
+      [(ngModel)]="data_pesquisa"
+    >
+    </ion-input>
+    <ion-button color="dark" (click)="informarData()">
+      <ion-icon ios="ios-search" md="md-search"></ion-icon>
+    </ion-button>
   </ion-item>
 
   <div class="spacer" style="width: 900px; height: 35.9896px;"></div>
 
-  <ion-list>
+  <ion-list *ngIf="exibirLista">
     <div *ngFor="let reserva of reservas">
       <ion-item>
         <ion-label>{{ reserva.hora }}</ion-label>

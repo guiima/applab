@@ -18,6 +18,10 @@ export const acesso = {
   permitido: false
 };
 
+export const SERVER_URL = {
+  base_url: "http://localhost:3333/"
+};
+
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
