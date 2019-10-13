@@ -82,94 +82,96 @@ export class ReservaPage implements OnInit {
     }
   ];
 
-  public reservas = [
-    {
-      hora: "7AM",
-      hora_compara: "07:00:00",
-      reservado: ""
-    },
-    {
-      hora: "8AM",
-      hora_compara: "08:00:00",
-      reservado: ""
-    },
-    {
-      hora: "9AM",
-      hora_compara: "09:00:00",
-      reservado: ""
-    },
-    {
-      hora: "10AM",
-      hora_compara: "10:00:00",
-      reservado: ""
-    },
-    {
-      hora: "11AM",
-      hora_compara: "11:00:00",
-      reservado: ""
-    },
-    {
-      hora: "12AM",
-      hora_compara: "12:00:00",
-      reservado: ""
-    },
-    {
-      hora: "1PM",
-      hora_compara: "13:00:00",
-      reservado: ""
-    },
-    {
-      hora: "2PM",
-      hora_compara: "14:00:00",
-      reservado: ""
-    },
-    {
-      hora: "3PM",
-      hora_compara: "15:00:00",
-      reservado: ""
-    },
-    {
-      hora: "4PM",
-      hora_compara: "16:00:00",
-      reservado: ""
-    },
-    {
-      hora: "5PM",
-      hora_compara: "17:00:00",
-      reservado: ""
-    },
-    {
-      hora: "6PM",
-      hora_compara: "18:00:00",
-      reservado: ""
-    },
-    {
-      hora: "7PM",
-      hora_compara: "19:00:00",
-      reservado: ""
-    },
-    {
-      hora: "8PM",
-      hora_compara: "20:00:00",
-      reservado: ""
-    },
-    {
-      hora: "9PM",
-      hora_compara: "21:00:00",
-      reservado: ""
-    },
-    {
-      hora: "10PM",
-      hora_compara: "22:00:00",
-      reservado: ""
-    }
-  ];
+  public reservas;
 
   constructor(private http: HttpClient) {}
 
   ngOnInit() {}
 
   informarData() {
+    this.reservas = [
+      {
+        hora: "7AM",
+        hora_compara: "07:00:00",
+        reservado: ""
+      },
+      {
+        hora: "8AM",
+        hora_compara: "08:00:00",
+        reservado: ""
+      },
+      {
+        hora: "9AM",
+        hora_compara: "09:00:00",
+        reservado: ""
+      },
+      {
+        hora: "10AM",
+        hora_compara: "10:00:00",
+        reservado: ""
+      },
+      {
+        hora: "11AM",
+        hora_compara: "11:00:00",
+        reservado: ""
+      },
+      {
+        hora: "12AM",
+        hora_compara: "12:00:00",
+        reservado: ""
+      },
+      {
+        hora: "1PM",
+        hora_compara: "13:00:00",
+        reservado: ""
+      },
+      {
+        hora: "2PM",
+        hora_compara: "14:00:00",
+        reservado: ""
+      },
+      {
+        hora: "3PM",
+        hora_compara: "15:00:00",
+        reservado: ""
+      },
+      {
+        hora: "4PM",
+        hora_compara: "16:00:00",
+        reservado: ""
+      },
+      {
+        hora: "5PM",
+        hora_compara: "17:00:00",
+        reservado: ""
+      },
+      {
+        hora: "6PM",
+        hora_compara: "18:00:00",
+        reservado: ""
+      },
+      {
+        hora: "7PM",
+        hora_compara: "19:00:00",
+        reservado: ""
+      },
+      {
+        hora: "8PM",
+        hora_compara: "20:00:00",
+        reservado: ""
+      },
+      {
+        hora: "9PM",
+        hora_compara: "21:00:00",
+        reservado: ""
+      },
+      {
+        hora: "10PM",
+        hora_compara: "22:00:00",
+        reservado: ""
+      }
+    ];
+
     let JsonInfo = {
       data: this.data_pesquisa
     };

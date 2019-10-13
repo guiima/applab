@@ -87,7 +87,11 @@
       <ion-item>
         <ion-label>{{ reserva.hora }}</ion-label>
         <ion-label>{{ reserva.reservado }}</ion-label>
-        <ion-button color="dark" *ngIf="!reserva.reservado">
+        <ion-button
+          color="dark"
+          *ngIf="!reserva.reservado"
+          (click)="adcionarReserva()"
+        >
           <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon>
         </ion-button>
       </ion-item>
