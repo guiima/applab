@@ -90,6 +90,7 @@ export class ReagentePage implements OnInit {
   }
 
   ngOnInit() {
+    //comentaario
     return this.http
       .get<reagente[]>(this.url)
       .toPromise()
