@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { acesso, SERVER_URL } from "src/environments/environment";
+import { acesso, SERVER_URL, logado } from "src/environments/environment";
 import { HttpClient } from "@angular/common/http";
 
 @Component({
@@ -190,7 +190,6 @@ export class ReservaPage implements OnInit {
       equipamento_id: this.selecionado
     };
     let reservas_dia;
-    console.log("dataaaaaaa ", this.data_pesquisa);
     this.http
       .post(SERVER_URL.base_url + "reservadata", JsonInfo)
       .toPromise()
@@ -215,8 +214,21 @@ export class ReservaPage implements OnInit {
   }
 
   adcionarReserva(hora) {
-    // console.log(this.data_pesquisa);
-    // console.log(hora);
-    // this.http.post(SERVER_URL.base_url + "").toPromise().then().catch()
+    let JsonInfo = {
+      data: this.data_pesquisa,
+      hora: hora,
+      usuario_id: 1, //MUDAR ESSA PORRA PARA VARIAVEL GLOBAL DO EVIRMONES
+      equipamento_id: this.selecionado
+    };
+    this.http
+      .post(SERVER_URL.base_url + "reservas", JsonInfo)
+      .toPromise()
+      .then(response => {
+        console.log(response);
+        this.informarData();
+      })
+      .catch(response => {
+        console.log(response);
+      });
   }
 }
