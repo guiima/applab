@@ -67,8 +67,11 @@
 <!-- ======================= daqui pra cima é menu ======================= -->
 <ion-content padding>
   <ion-item>
-    <ion-label>Selecione o equipamento</ion-label>
-    <ion-select [(ngModel)]="selecionado">
+    <ion-select
+      class="option"
+      placeHolder="Selecione Equipamento"
+      [(ngModel)]="selecionado"
+    >
       <ion-select-option
         *ngFor="let equipamento of equipamentos"
         value="{{ equipamento.id }}"
