@@ -1,0 +1,105 @@
+<div *ngIf="exibir">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+        Recursos
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-menu contentId="content">
+    <ion-content>
+      <div *ngFor="let page of appPages">
+        <ion-menu-toggle *ngIf="page.url">
+          <ion-item
+            [routerLink]="page.url"
+            routerDirection="root"
+            routerLinkActive="active"
+          >
+            <ion-icon [name]="page.icon" slot="start"> </ion-icon>
+            <ion-label>
+              {{ page.title }}
+            </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </div>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="content" main></ion-router-outlet>
+</div>
+
+<div *ngIf="!exibir">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+        Recursos
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-menu contentId="content">
+    <ion-content>
+      <div *ngFor="let page of appPages2">
+        <ion-menu-toggle *ngIf="page.url">
+          <ion-item
+            [routerLink]="page.url"
+            routerDirection="root"
+            routerLinkActive="active"
+          >
+            <ion-icon [name]="page.icon" slot="start"> </ion-icon>
+            <ion-label>
+              {{ page.title }}
+            </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </div>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="content" main></ion-router-outlet>
+</div>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item>
+      <ion-label>Numeração: </ion-label>
+
+      <ion-label>{{ numeracao }}</ion-label>
+    </ion-item>
+    <div class="spacer" style="width: 900px; height: 35.9896px;"></div>
+
+    <ion-item>
+      <ion-label>Nomenclatura: </ion-label>
+      <ion-label>{{ nomenclatura }}</ion-label>
+    </ion-item>
+    <div class="spacer" style="width: 900px; height: 35.9896px;"></div>
+
+    <ion-item>
+      <ion-label>Tipo: </ion-label>
+
+      <ion-label>{{ tipo }}</ion-label>
+    </ion-item>
+    <div class="spacer" style="width: 900px; height: 35.9896px;"></div>
+
+    <ion-item style="margin-bottom: 0px;">
+      <ion-label position="floating">Quantidade</ion-label>
+      <ion-input
+        placeholder="Insira quantidade ( Ex: 10ml ou 100g )"
+        [(ngModel)]="quantidade_consumida"
+      ></ion-input>
+    </ion-item>
+  </ion-list>
+  <div class="spacer" style="width: 900px; height: 35.9896px;"></div>
+
+  <ion-button
+    color="dark"
+    class="button button-block button-positive"
+    (click)="alertUso()"
+    >Informar Uso</ion-button
+  >
+</ion-content>

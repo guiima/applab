@@ -1,0 +1,87 @@
+<div *ngIf="exibir">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+        Reserva
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-menu contentId="content">
+    <ion-content>
+      <div *ngFor="let page of appPages">
+        <ion-menu-toggle *ngIf="page.url">
+          <ion-item
+            [routerLink]="page.url"
+            routerDirection="root"
+            routerLinkActive="active"
+          >
+            <ion-icon [name]="page.icon" slot="start"> </ion-icon>
+            <ion-label>
+              {{ page.title }}
+            </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </div>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="content" main></ion-router-outlet>
+</div>
+
+<div *ngIf="!exibir">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+        Reserva
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-menu contentId="content">
+    <ion-content>
+      <div *ngFor="let page of appPages2">
+        <ion-menu-toggle *ngIf="page.url">
+          <ion-item
+            [routerLink]="page.url"
+            routerDirection="root"
+            routerLinkActive="active"
+          >
+            <ion-icon [name]="page.icon" slot="start"> </ion-icon>
+            <ion-label>
+              {{ page.title }}
+            </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </div>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="content" main></ion-router-outlet>
+</div>
+
+<!-- ======================= daqui pra cima é menu ======================= -->
+<ion-content padding>
+  <ion-item>
+    <label>Data: </label>
+    <ion-input type="date" color="medium" class="ion-margin"> </ion-input>
+  </ion-item>
+
+  <div class="spacer" style="width: 900px; height: 35.9896px;"></div>
+
+  <ion-list>
+    <div *ngFor="let reserva of reservas">
+      <ion-item>
+        <ion-label>{{ reserva.hora }}</ion-label>
+        <ion-label>{{ reserva.reservado }}</ion-label>
+        <ion-button color="dark" *ngIf="!reserva.reservado">
+          <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </div>
+  </ion-list>
+</ion-content>
