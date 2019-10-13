@@ -67,6 +67,16 @@
 <!-- ======================= daqui pra cima é menu ======================= -->
 <ion-content padding>
   <ion-item>
+    <ion-label>Selecione o equipamento</ion-label>
+    <ion-select [(ngModel)]="selecionado">
+      <ion-select-option
+        *ngFor="let equipamento of equipamentos"
+        value="{{ equipamento.id }}"
+        >{{ equipamento.nome }}</ion-select-option
+      >
+    </ion-select>
+  </ion-item>
+  <ion-item>
     <label>Data: </label>
     <ion-input
       type="date"
@@ -90,7 +100,7 @@
         <ion-button
           color="dark"
           *ngIf="!reserva.reservado"
-          (click)="adcionarReserva()"
+          (click)="adcionarReserva(reserva.hora_compara)"
         >
           <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon>
         </ion-button>

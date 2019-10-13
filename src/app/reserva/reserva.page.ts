@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { acesso, SERVER_URL } from "src/environments/environment";
-import { reserva } from "./reserva";
 import { HttpClient } from "@angular/common/http";
 
 @Component({
@@ -12,6 +11,9 @@ export class ReservaPage implements OnInit {
   exibir: boolean = acesso.permitido;
   data_pesquisa: Date;
   exibirLista: boolean = false;
+  equipamentos: any;
+  selecionado: any;
+
   public appPages = [
     {
       title: "Uso Reagente",
@@ -86,7 +88,18 @@ export class ReservaPage implements OnInit {
 
   constructor(private http: HttpClient) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.http
+      .get(SERVER_URL.base_url + "equipamentos")
+      .toPromise()
+      .then(response => {
+        this.equipamentos = response;
+        console.log(this.equipamentos);
+      })
+      .catch(response => {
+        console.log(response);
+      });
+  }
 
   informarData() {
     this.reservas = [
@@ -173,7 +186,8 @@ export class ReservaPage implements OnInit {
     ];
 
     let JsonInfo = {
-      data: this.data_pesquisa
+      data: this.data_pesquisa,
+      equipamento_id: this.selecionado
     };
     let reservas_dia;
     console.log("dataaaaaaa ", this.data_pesquisa);
@@ -198,5 +212,11 @@ export class ReservaPage implements OnInit {
       .catch(response => {
         console.log(response);
       });
+  }
+
+  adcionarReserva(hora) {
+    // console.log(this.data_pesquisa);
+    // console.log(hora);
+    // this.http.post(SERVER_URL.base_url + "").toPromise().then().catch()
   }
 }
