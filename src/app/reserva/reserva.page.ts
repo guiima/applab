@@ -197,7 +197,6 @@ export class ReservaPage implements OnInit {
       .then(response => {
         this.exibirLista = true;
         reservas_dia = response;
-        // console.log(aux[0].hora);
 
         for (let uma_reserva of reservas_dia) {
           let i = 0;
