@@ -1,0 +1,85 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/admusuario"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Gerenciar Usuarios</ion-title>
+  </ion-toolbar>
+</ion-header>
+<!-- ======================= daqui pra cima é menu ======================= -->
+
+<ion-content padding>
+  <!--AQUI EU MANDEI O LABEL DE CADASTRO TESTE!!!!!-->
+
+  <ion-item>
+    <ion-label>NOME:&nbsp;&nbsp;</ion-label>
+    <ion-input
+      placeholder="{{ nome }}"
+      [(ngModel)]="new_nome"
+      type="text"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>RA:&nbsp;&nbsp;</ion-label>
+    <ion-input
+      placeholder="{{ ra }}"
+      [(ngModel)]="new_ra"
+      type="text"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>INSTITUIÇÃO:&nbsp;&nbsp;</ion-label>
+    <ion-input
+      placeholder="{{ instituicao }}"
+      [(ngModel)]="new_instituicao"
+      type="text"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>CURSO:&nbsp;&nbsp;</ion-label>
+    <ion-input
+      placeholder="{{ curso }}"
+      [(ngModel)]="new_curso"
+      type="text"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>E-MAIL:&nbsp;&nbsp;</ion-label>
+    <ion-input
+      placeholder="{{ email }}"
+      [(ngModel)]="new_email"
+      type="text"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>SENHA:&nbsp;&nbsp;</ion-label>
+    <ion-input
+      placeholder="{{ senha }}"
+      [(ngModel)]="new_senha"
+      type="password"
+    ></ion-input>
+    <ion-radio-group [(ngModel)]="new_autorizado">
+      <ion-item>
+        <ion-label>Autorizado</ion-label>
+        <ion-radio slot="start" value="true" checked></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Desautorizado</ion-label>
+        <ion-radio slot="start" value="false"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-item>
+
+  <!--AQUI EU MANDEI O BOTÃO TESTE!!!!!-->
+  <div class="spacer" style="width: 900px; height: 35.9896px;"></div>
+
+  <ion-button color="dark" expand="full" (click)="atualiza()"
+    >Concluir</ion-button
+  >
+</ion-content>

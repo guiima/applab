@@ -219,7 +219,7 @@ export class ReservaPage implements OnInit {
     let JsonInfo = {
       data: this.data_pesquisa,
       hora: hora,
-      usuario_id: 1, //MUDAR ESSA PORRA PARA VARIAVEL GLOBAL DO EVIRMONES
+      usuario_id: logado.id, //MUDAR ESSA PORRA PARA VARIAVEL GLOBAL DO EVIRMONES
       equipamento_id: this.selecionado
     };
     this.http

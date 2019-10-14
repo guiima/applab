@@ -29,7 +29,7 @@ export class ReagentePage implements OnInit {
     },
     {
       title: "Reservar Equipamento",
-      url: "/usoequip",
+      url: "/reserva",
       icon: "build"
     },
     {
@@ -66,7 +66,7 @@ export class ReagentePage implements OnInit {
     },
     {
       title: "Reservar Equipamento",
-      url: "/usoequip",
+      url: "/reserva",
       icon: "build"
     },
     {
