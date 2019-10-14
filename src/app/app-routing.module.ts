@@ -11,7 +11,8 @@ const routes: Routes = [
   { path: 'reagente', loadChildren: './reagente/reagente.module#ReagentePageModule' },
   { path: 'recurso', loadChildren: './recurso/recurso.module#RecursoPageModule' },
   { path: 'reserva', loadChildren: './reserva/reserva.module#ReservaPageModule' },
-  { path: 'dano', loadChildren: './dano/dano.module#DanoPageModule' }
+  { path: 'dano', loadChildren: './dano/dano.module#DanoPageModule' },
+  { path: 'relatorio', loadChildren: './relatorio/relatorio.module#RelatorioPageModule' }
 
 ];
 
