@@ -1,0 +1,112 @@
+<div *ngIf="exibir">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+        Relatorio
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-menu contentId="content">
+    <ion-content>
+      <div *ngFor="let page of appPages">
+        <ion-menu-toggle *ngIf="page.url">
+          <ion-item
+            [routerLink]="page.url"
+            routerDirection="root"
+            routerLinkActive="active"
+          >
+            <ion-icon [name]="page.icon" slot="start"> </ion-icon>
+            <ion-label>
+              {{ page.title }}
+            </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </div>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="content" main></ion-router-outlet>
+</div>
+
+<div *ngIf="!exibir">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+        Relatorio
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-menu contentId="content">
+    <ion-content>
+      <div *ngFor="let page of appPages2">
+        <ion-menu-toggle *ngIf="page.url">
+          <ion-item
+            [routerLink]="page.url"
+            routerDirection="root"
+            routerLinkActive="active"
+          >
+            <ion-icon [name]="page.icon" slot="start"> </ion-icon>
+            <ion-label>
+              {{ page.title }}
+            </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </div>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="content" main></ion-router-outlet>
+</div>
+
+<!-- ======================= daqui pra cima é menu ======================= -->
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label></ion-label>
+    <ion-select
+      class="option"
+      placeHolder="Selecione um item"
+      [(ngModel)]="selecionado"
+    >
+      <ion-select-option value="1">Meio de cultivo</ion-select-option>
+      <ion-select-option value="2">Reagente</ion-select-option>
+      <ion-select-option value="3">Vidraria</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <label>Data início: </label>
+    <ion-input
+      type="date"
+      color="medium"
+      class="ion-margin"
+      [(ngModel)]="data_inicio"
+    >
+    </ion-input>
+  </ion-item>
+  <ion-item>
+    <label>Data final: </label>
+    <ion-input
+      type="date"
+      color="medium"
+      class="ion-margin"
+      [(ngModel)]="data_final"
+    >
+    </ion-input>
+  </ion-item>
+
+  <section>
+    <ion-button
+      (click)="gerarRelatorio()"
+      class="ion-margin-top ion-margin-bottom"
+      expand="block"
+      color="dark"
+      >Gerar relatório</ion-button
+    >
+  </section>
+</ion-content>
