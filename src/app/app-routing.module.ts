@@ -11,8 +11,17 @@ const routes: Routes = [
   { path: 'reagente', loadChildren: './reagente/reagente.module#ReagentePageModule' },
   { path: 'recurso', loadChildren: './recurso/recurso.module#RecursoPageModule' },
   { path: 'reserva', loadChildren: './reserva/reserva.module#ReservaPageModule' },
+<<<<<<< HEAD
   { path: 'dano', loadChildren: './dano/dano.module#DanoPageModule' },
   { path: 'relatorio', loadChildren: './relatorio/relatorio.module#RelatorioPageModule' }
+=======
+<<<<<<< HEAD
+  { path: 'admin', loadChildren: './admin/admin.module#AdminPageModule' },
+  { path: 'admusuario', loadChildren: './admusuario/admusuario.module#AdmusuarioPageModule' }
+=======
+  { path: 'dano', loadChildren: './dano/dano.module#DanoPageModule' }
+>>>>>>> fbaec5f3adbe0852392702bae386844d6b98210d
+>>>>>>> 80967c21b6a890640e43d648dff91db5b2bfa1ee
 
 ];
 
