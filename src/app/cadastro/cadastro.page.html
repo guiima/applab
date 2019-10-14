@@ -1,0 +1,50 @@
+<ion-content padding>
+  <!--AQUI EU MANDEI O LABEL DE CADASTRO TESTE!!!!!-->
+
+  <ion-item>
+    <ion-label position="floating">Nome</ion-label>
+    <ion-input type="text" [(ngModel)]="nome"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">RA</ion-label>
+    <ion-input
+      placeholder="Apenas numeros. EX: 1381911"
+      type="text"
+      [(ngModel)]="ra"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Orientador</ion-label>
+    <ion-input type="text" [(ngModel)]="orientador"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Instituição</ion-label>
+    <ion-input type="text" [(ngModel)]="instituicao"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Curso</ion-label>
+    <ion-input type="text" [(ngModel)]="curso"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">email</ion-label>
+    <ion-input type="text" [(ngModel)]="email"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Senha</ion-label>
+    <ion-input type="text" [(ngModel)]="senha"></ion-input>
+  </ion-item>
+
+  <!--AQUI EU MANDEI O BOTÃO TESTE!!!!!-->
+  <div class="spacer" style="width: 900px; height: 15.9896px;"></div>
+
+  <ion-button (click)="postU()" color="dark" expand="full"
+    >CADASTRAR</ion-button
+  >
+  <ion-button href="/login" color="dark" expand="full">VOLTAR</ion-button>
+</ion-content>
