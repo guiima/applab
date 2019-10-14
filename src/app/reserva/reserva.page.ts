@@ -52,6 +52,7 @@ export class ReservaPage implements OnInit {
       icon: ""
     }
   ];
+
   public appPages2 = [
     {
       title: "Uso Reagente",
@@ -197,6 +198,7 @@ export class ReservaPage implements OnInit {
       .then(response => {
         this.exibirLista = true;
         reservas_dia = response;
+        //testeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
 
         for (let uma_reserva of reservas_dia) {
           let i = 0;
