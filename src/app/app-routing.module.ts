@@ -10,7 +10,9 @@ const routes: Routes = [
   { path: "login", loadChildren: "./login/login.module#LoginPageModule" },  { path: 'precadastro', loadChildren: './precadastro/precadastro.module#PrecadastroPageModule' },
   { path: 'reagente', loadChildren: './reagente/reagente.module#ReagentePageModule' },
   { path: 'recurso', loadChildren: './recurso/recurso.module#RecursoPageModule' },
-  { path: 'reserva', loadChildren: './reserva/reserva.module#ReservaPageModule' }
+  { path: 'reserva', loadChildren: './reserva/reserva.module#ReservaPageModule' },
+  { path: 'admin', loadChildren: './admin/admin.module#AdminPageModule' },
+  { path: 'admusuario', loadChildren: './admusuario/admusuario.module#AdmusuarioPageModule' }
 
 ];
 

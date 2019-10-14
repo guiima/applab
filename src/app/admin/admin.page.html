@@ -1,0 +1,135 @@
+<div *ngIf="exibir">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+        Reserva
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-menu contentId="content">
+    <ion-content>
+      <div *ngFor="let page of appPages">
+        <ion-menu-toggle *ngIf="page.url">
+          <ion-item
+            [routerLink]="page.url"
+            routerDirection="root"
+            routerLinkActive="active"
+          >
+            <ion-icon [name]="page.icon" slot="start"> </ion-icon>
+            <ion-label>
+              {{ page.title }}
+            </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </div>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="content" main></ion-router-outlet>
+</div>
+
+<div *ngIf="!exibir">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+        Gerencia Usuario
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-menu contentId="content">
+    <ion-content>
+      <div *ngFor="let page of appPages2">
+        <ion-menu-toggle *ngIf="page.url">
+          <ion-item
+            [routerLink]="page.url"
+            routerDirection="root"
+            routerLinkActive="active"
+          >
+            <ion-icon [name]="page.icon" slot="start"> </ion-icon>
+            <ion-label>
+              {{ page.title }}
+            </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </div>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="content" main></ion-router-outlet>
+</div>
+
+<!-- ======================= daqui pra cima é menu ======================= -->
+<ion-content padding>
+  <!--LISTA PARA LIBERAR USUARIOS NOVOS-->
+  <h4>LIBERAR NOVOS USUARIOS</h4>
+  <ion-list>
+    <ion-item *ngFor="let novo of novos">
+      <ion-label class="label"> {{ novo.nome }}</ion-label>
+
+      <ion-button
+        color="dark"
+        class="option"
+        slot="end"
+        (click)="mostrausuario(novo)"
+      >
+        <ion-icon name="search" slot="icon-only"></ion-icon>
+      </ion-button>
+      <ion-button
+        color="dark"
+        class="option"
+        slot="end"
+        (click)="LiberaUsuario(novo)"
+      >
+        <ion-icon name="checkmark" slot="icon-only"></ion-icon>
+      </ion-button>
+      <ion-button
+        color="dark"
+        class="option"
+        slot="end"
+        (click)="alertExcluir(novo.id)"
+      >
+        <ion-icon name="close" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <!--LISTA DE USUARIOS JÁ LIBERADOS-->
+  <h4>GERENCIAR USUARIOS</h4>
+  <ion-list>
+    <ion-item *ngFor="let cadastrado of cadastrados">
+      <ion-label class="label">{{ cadastrado.nome }}</ion-label>
+      <ion-button
+        color="dark"
+        class="option"
+        slot="end"
+        (click)="mostrausuario(cadastrado)"
+      >
+        <ion-icon name="search" slot="icon-only"></ion-icon>
+      </ion-button>
+
+      <ion-button
+        (click)="AtualizaUsuario(cadastrado)"
+        color="dark"
+        class="option"
+        slot="end"
+      >
+        <ion-icon ios="ios-create" md="md-create" slot="end"></ion-icon>
+      </ion-button>
+
+      <ion-button
+        color="dark"
+        class="option"
+        slot="end"
+        (click)="alertExcluir1(cadastrado.id)"
+      >
+        <ion-icon ios="ios-trash" md="md-trash" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
