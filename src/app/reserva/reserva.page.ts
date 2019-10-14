@@ -8,6 +8,7 @@ import { HttpClient } from "@angular/common/http";
   styleUrls: ["./reserva.page.scss"]
 })
 export class ReservaPage implements OnInit {
+  //HOJE SIM!
   exibir: boolean = acesso.permitido;
   data_pesquisa: Date;
   exibirLista: boolean = false;
