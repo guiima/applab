@@ -1,0 +1,30 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/admin"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Gerenciar Equipamentos</ion-title>
+  </ion-toolbar>
+</ion-header>
+<!-- ======================= daqui pra cima é menu ======================= -->
+
+<ion-content padding>
+  <ion-button color="dark">Novo</ion-button>
+  <div class="spacer" style="width: 900px; height: 10.9896px;"></div>
+  <ion-list>
+    <ion-item *ngFor="let equipamento of equipamentos">
+      <ion-label class="label">{{ equipamento.nome }}</ion-label>
+      <ion-button color="dark" class="option1" slot="end">
+        <ion-icon name="search" slot="icon-only"></ion-icon>
+      </ion-button>
+
+      <ion-button color="dark" class="option" slot="end">
+        <ion-icon ios="ios-create" md="md-create" slot="end"></ion-icon>
+      </ion-button>
+
+      <ion-button color="dark" class="option" slot="end">
+        <ion-icon ios="ios-trash" md="md-trash" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -62,7 +62,8 @@ const routes: Routes = [
     loadChildren: "./admusuario/admusuario.module#AdmusuarioPageModule"
   },
 
-  { path: "dano", loadChildren: "./dano/dano.module#DanoPageModule" }
+  { path: "dano", loadChildren: "./dano/dano.module#DanoPageModule" },  { path: 'admequip', loadChildren: './admequip/admequip.module#AdmequipPageModule' }
+
 ];
 
 @NgModule({
