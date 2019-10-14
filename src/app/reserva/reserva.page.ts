@@ -52,6 +52,7 @@ export class ReservaPage implements OnInit {
       icon: ""
     }
   ];
+
   public appPages2 = [
     {
       title: "Uso Reagente",

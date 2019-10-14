@@ -5,7 +5,7 @@
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
       <ion-title>
-        Reserva
+        Dano
       </ion-title>
     </ion-toolbar>
   </ion-header>
@@ -38,7 +38,7 @@
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
       <ion-title>
-        Reserva
+        Dano
       </ion-title>
     </ion-toolbar>
   </ion-header>
@@ -65,49 +65,41 @@
 </div>
 
 <!-- ======================= daqui pra cima é menu ======================= -->
-<ion-content padding>
+
+<ion-content class="ion-padding">
   <ion-item>
     <ion-select
       class="option"
-      placeHolder="Selecione equipamento"
+      placeHolder="Selecione a vidraria"
       [(ngModel)]="selecionado"
     >
       <ion-select-option
-        *ngFor="let equipamento of equipamentos"
-        value="{{ equipamento.id }}"
-        >{{ equipamento.nome }}</ion-select-option
+        *ngFor="let vidraria of vidrarias"
+        value="{{ vidraria.id }}"
+        >{{ vidraria.nome }}</ion-select-option
       >
     </ion-select>
-  </ion-item>
-  <ion-item>
-    <label>Data: </label>
-    <ion-input
-      type="date"
-      color="medium"
-      class="ion-margin"
-      [(ngModel)]="data_pesquisa"
-    >
-    </ion-input>
-    <ion-button color="dark" (click)="informarData()">
-      <ion-icon ios="ios-search" md="md-search"></ion-icon>
-    </ion-button>
   </ion-item>
 
   <div class="spacer" style="width: 900px; height: 35.9896px;"></div>
 
-  <ion-list *ngIf="exibirLista">
-    <div *ngFor="let reserva of reservas">
-      <ion-item>
-        <ion-label>{{ reserva.hora }}</ion-label>
-        <ion-label>{{ reserva.reservado }}</ion-label>
-        <ion-button
-          color="dark"
-          *ngIf="!reserva.reservado"
-          (click)="adcionarReserva(reserva.hora_compara)"
-        >
-          <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon>
-        </ion-button>
-      </ion-item>
-    </div>
-  </ion-list>
+  <ion-item>
+    <ion-label position="stacked">Conte-nos o que ocorreu:</ion-label>
+    <ion-textarea [(ngModel)]="texto" rows="10" cols="20"></ion-textarea>
+  </ion-item>
+
+  <section>
+    <ion-button
+      (click)="resgistrarDano()"
+      class="ion-margin-top ion-margin-bottom"
+      expand="block"
+      color="dark"
+      >Registrar dano</ion-button
+    >
+  </section>
+
+  <strong
+    >"Erros são doloros quando eles acontecem. Mas anos mais tarde a coleção de
+    erros é o que é chamado de experiência"</strong
+  >
 </ion-content>
