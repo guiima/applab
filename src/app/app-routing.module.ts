@@ -7,22 +7,35 @@ const routes: Routes = [
     path: "home",
     loadChildren: () => import("./home/home.module").then(m => m.HomePageModule)
   },
-  { path: "login", loadChildren: "./login/login.module#LoginPageModule" },  { path: 'precadastro', loadChildren: './precadastro/precadastro.module#PrecadastroPageModule' },
-  { path: 'reagente', loadChildren: './reagente/reagente.module#ReagentePageModule' },
-  { path: 'recurso', loadChildren: './recurso/recurso.module#RecursoPageModule' },
-  { path: 'reserva', loadChildren: './reserva/reserva.module#ReservaPageModule' },
-<<<<<<< HEAD
-  { path: 'dano', loadChildren: './dano/dano.module#DanoPageModule' },
-  { path: 'relatorio', loadChildren: './relatorio/relatorio.module#RelatorioPageModule' }
-=======
-<<<<<<< HEAD
-  { path: 'admin', loadChildren: './admin/admin.module#AdminPageModule' },
-  { path: 'admusuario', loadChildren: './admusuario/admusuario.module#AdmusuarioPageModule' }
-=======
-  { path: 'dano', loadChildren: './dano/dano.module#DanoPageModule' }
->>>>>>> fbaec5f3adbe0852392702bae386844d6b98210d
->>>>>>> 80967c21b6a890640e43d648dff91db5b2bfa1ee
+  { path: "login", loadChildren: "./login/login.module#LoginPageModule" },
+  {
+    path: "precadastro",
+    loadChildren: "./precadastro/precadastro.module#PrecadastroPageModule"
+  },
+  {
+    path: "reagente",
+    loadChildren: "./reagente/reagente.module#ReagentePageModule"
+  },
+  {
+    path: "recurso",
+    loadChildren: "./recurso/recurso.module#RecursoPageModule"
+  },
+  {
+    path: "reserva",
+    loadChildren: "./reserva/reserva.module#ReservaPageModule"
+  },
 
+  { path: "dano", loadChildren: "./dano/dano.module#DanoPageModule" },
+  {
+    path: "relatorio",
+    loadChildren: "./relatorio/relatorio.module#RelatorioPageModule"
+  },
+
+  { path: "admin", loadChildren: "./admin/admin.module#AdminPageModule" },
+  {
+    path: "admusuario",
+    loadChildren: "./admusuario/admusuario.module#AdmusuarioPageModule"
+  }
 ];
 
 @NgModule({
