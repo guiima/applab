@@ -1,8 +1,10 @@
+import { Router } from "@angular/router";
 import { usuario } from "./usuario";
 import { SERVER_URL, acesso } from "./../../environments/environment";
 import { HttpClient } from "@angular/common/http";
 import { AlertController } from "@ionic/angular";
 import { Component, OnInit } from "@angular/core";
+import { NavigationExtras } from "@angular/router";
 
 @Component({
   selector: "app-admusuario",
@@ -83,7 +85,11 @@ export class AdmusuarioPage implements OnInit {
       icon: ""
     }
   ];
-  constructor(private alert: AlertController, private http: HttpClient) {}
+  constructor(
+    private alert: AlertController,
+    private http: HttpClient,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.atualizaListas();
@@ -133,8 +139,20 @@ export class AdmusuarioPage implements OnInit {
       });
   }
   AtualizaUsuario(usuario: usuario) {
-    console.log(usuario.id);
-    console.log(usuario.autorizado);
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        id: usuario.id,
+        nome: usuario.nome,
+        instituicao: usuario.instituicao,
+        senha: usuario.senha,
+        curso: usuario.curso,
+        email: usuario.email,
+        ra: usuario.ra,
+        tipo: usuario.tipo,
+        autorizado: usuario.autorizado
+      }
+    };
+    this.router.navigate(["editusuario"], navigationExtras);
   }
 
   async alertExcluir(id: number) {
