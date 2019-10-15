@@ -110,12 +110,35 @@
     >
   </section>
 
-  <ion-list>
-    <ion-item *ngFor="let vidraria of vidrarias">
-      <ion-label> {{ vidraria.vidraria.nome }}</ion-label>
-      <ion-label> {{ vidraria.entrada }}</ion-label>
-      <ion-label> {{ vidraria.saida }}</ion-label>
-      <ion-label> {{ vidraria.data }}</ion-label>
-    </ion-item>
-  </ion-list>
+  <!-- <div class="row responsive-sm" style="background-color: rgb(255, 255, 255);">
+    
+  </div> -->
+
+  <ul
+    class="ion-no-margin"
+    *ngFor="let vidraria of vidrarias"
+    style="background-color: rgb(255, 255, 255); list-style-type:none;"
+  >
+    <li>Nome: {{ vidraria.vidraria.nome }}</li>
+    <li>Entrou: {{ vidraria.entrada }}</li>
+    <li>Saiu: {{ vidraria.saida }}</li>
+    <li>Data: {{ vidraria.data }}</li>
+    <div class="hr"></div>
+  </ul>
+
+  <!-- <ion-list *ngIf="exibirLista">
+    <div class="list">
+      <ion-item *ngFor="let vidraria of vidrarias">
+        <ion-label>Nome: {{ vidraria.vidraria.nome }}</ion-label>
+        <br />
+        <ion-label *ngIf="vidraria.entrada"
+          >Entrou: {{ vidraria.entrada }}</ion-label
+        >
+        <br />
+        <ion-label *ngIf="vidraria.saida">Saiu: {{ vidraria.saida }}</ion-label>
+        <br />
+        <ion-label>Data: {{ vidraria.data }}</ion-label>
+      </ion-item>
+    </div>
+  </ion-list> -->
 </ion-content>

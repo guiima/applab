@@ -15,6 +15,7 @@ export class RelatorioPage implements OnInit {
   vidrarias: any;
   recursos: any;
   meio_cultivo: any;
+  exibirLista: any;
   public appPages = [
     {
       title: "Uso Reagente",
@@ -88,7 +89,9 @@ export class RelatorioPage implements OnInit {
 
   constructor(private http: HttpClient) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.exibirLista = false;
+  }
 
   gerarRelatorio() {
     console.log(this.selecionado);
@@ -116,6 +119,7 @@ export class RelatorioPage implements OnInit {
         .then(res => {
           this.vidrarias = res;
           console.log(res);
+          this.exibirLista = true;
         })
         .catch(res => {
           console.log(res);
