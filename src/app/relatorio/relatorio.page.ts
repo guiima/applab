@@ -15,7 +15,9 @@ export class RelatorioPage implements OnInit {
   vidrarias: any;
   recursos: any;
   meio_cultivo: any;
-  exibirLista: any;
+  exibirCard: any;
+  somaEntrada: any;
+  somaSaida: any;
   public appPages = [
     {
       title: "Uso Reagente",
@@ -90,7 +92,7 @@ export class RelatorioPage implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    this.exibirLista = false;
+    this.exibirCard = false;
   }
 
   gerarRelatorio() {
@@ -113,13 +115,51 @@ export class RelatorioPage implements OnInit {
 
     //vidraria
     if (this.selecionado == 3) {
+      //busca todos os registro no periodo
       this.http
         .post(SERVER_URL.base_url + "registrovidrariadata", JsonInfo)
         .toPromise()
         .then(res => {
           this.vidrarias = res;
           console.log(res);
-          this.exibirLista = true;
+        })
+        .catch(res => {
+          console.log(res);
+        });
+
+      //realiza a soma das entradas no periodo
+      this.http
+        .post(SERVER_URL.base_url + "registrovidrariasomaentrada", JsonInfo)
+        .toPromise()
+        .then(res => {
+          this.somaEntrada = res;
+          console.log("res:", res);
+          console.log("soma entrada: ", this.somaEntrada[0].sum);
+          if (this.somaEntrada[0].sum) {
+            this.somaEntrada = this.somaEntrada[0].sum;
+          } else {
+            this.somaEntrada = 0;
+          }
+        })
+        .catch(res => {
+          console.log(res);
+        });
+
+      //realiza a soma das saidas no periodo
+      this.http
+        .post(SERVER_URL.base_url + "registrovidrariasomasaida", JsonInfo)
+        .toPromise()
+        .then(res => {
+          this.somaSaida = res;
+          console.log("res:", res);
+          console.log("soma entrada: ", this.somaSaida[0].sum);
+          if (this.somaSaida[0].sum) {
+            this.somaSaida = this.somaSaida[0].sum;
+          } else {
+            this.somaSaida = 0;
+          }
+
+          this.exibirCard = true;
         })
         .catch(res => {
           console.log(res);

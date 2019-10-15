@@ -114,15 +114,57 @@
     
   </div> -->
 
+  <div
+    *ngIf="exibirCard"
+    class="card "
+    style="background-color: rgb(255, 255, 255); margin-bottom: 10px;"
+  >
+    <div
+      class="item item-divider "
+      style="text-align: center; background-color: rgb(214, 211, 211); padding: 0.5px;"
+    >
+      <h3>
+        Movimentação
+      </h3>
+    </div>
+    <div
+      class="item item-text-wrap"
+      style=" padding-top: 20px; padding-left: 10px;"
+    >
+      Entrada Total: {{ somaEntrada }}
+    </div>
+    <div
+      class="item item-text-wrap"
+      style=" padding-top: 20px; padding-left: 10px; padding-bottom: 15px;"
+    >
+      Saída Total:
+      <label style="color:red;">
+        {{ somaSaida }}
+      </label>
+    </div>
+  </div>
+
   <ul
     class="ion-no-margin"
     *ngFor="let vidraria of vidrarias"
     style="background-color: rgb(255, 255, 255); list-style-type:none;"
   >
-    <li>Nome: {{ vidraria.vidraria.nome }}</li>
-    <li>Entrou: {{ vidraria.entrada }}</li>
-    <li>Saiu: {{ vidraria.saida }}</li>
-    <li>Data: {{ vidraria.data }}</li>
+    <div class="ion-padding">
+      <li style=" padding-top: 10px">Nome: {{ vidraria.vidraria.nome }}</li>
+
+      <li *ngIf="vidraria.entrada" style=" padding-top: 10px">
+        Entrou: {{ vidraria.entrada }}
+      </li>
+
+      <li *ngIf="vidraria.saida" style=" padding-top: 10px">
+        <label> Saiu:</label>
+        <label style="color:red;">
+          {{ vidraria.saida }}
+        </label>
+      </li>
+
+      <li style=" padding-top: 10px">Data: {{ vidraria.data }}</li>
+    </div>
     <div class="hr"></div>
   </ul>
 

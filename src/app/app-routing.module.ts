@@ -30,22 +30,11 @@ const routes: Routes = [
     path: "relatorio",
     loadChildren: "./relatorio/relatorio.module#RelatorioPageModule"
   },
-  {
-    path: "editusuario",
-    loadChildren: "./editusuario/editusuario.module#EditusuarioPageModule"
-  },
+
   { path: "admin", loadChildren: "./admin/admin.module#AdminPageModule" },
   {
     path: "admusuario",
     loadChildren: "./admusuario/admusuario.module#AdmusuarioPageModule"
-  },
-  {
-    path: "admequip",
-    loadChildren: "./admequip/admequip.module#AdmequipPageModule"
-  },
-  {
-    path: "cadastro",
-    loadChildren: "./cadastro/cadastro.module#CadastroPageModule"
   }
 ];
 
