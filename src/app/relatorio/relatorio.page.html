@@ -109,6 +109,31 @@
       >Gerar relatório</ion-button
     >
   </section>
+  <section *ngIf="exibirCard">
+    <ion-button
+      style="margin-bottom: 10px;"
+      color="tertiary"
+      size="small"
+      expand="block"
+      >Download do relatório</ion-button
+    >
+  </section>
+  <!-- <ion-button class="ion-justify-content-end" size="small">Default</ion-button> -->
+
+  <!-- <ion-button class="botaofixo">
+    <ion-icon ios="ios-arrow-down" md="md-arrow-down"></ion-icon
+  ></ion-button> -->
+
+  <!-- <ion-fab
+    ion-fab
+    horizontal="“end”"
+    vertical="“bottom”"
+    style="position:fixed;"
+  >
+    <button color="danger">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab> -->
 
   <!-- <div class="row responsive-sm" style="background-color: rgb(255, 255, 255);">
     
@@ -123,9 +148,9 @@
       class="item item-divider "
       style="text-align: center; background-color: rgb(214, 211, 211); padding: 0.5px;"
     >
-      <h3>
-        Movimentação
-      </h3>
+      <h4 style=" padding-bottom: 10px">
+        Movimentação no período
+      </h4>
     </div>
     <div
       class="item item-text-wrap"

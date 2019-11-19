@@ -138,7 +138,7 @@ export class ReservaPage implements OnInit {
       {
         hora: "1PM",
         hora_compara: "13:00:00",
-        reservado: ""
+        reservado: "Aluno B"
       },
       {
         hora: "2PM",
@@ -204,7 +204,7 @@ export class ReservaPage implements OnInit {
           let i = 0;
           for (let reserva of this.reservas) {
             if (uma_reserva.hora == reserva.hora_compara) {
-              this.reservas[i].reservado = "Reservado";
+              this.reservas[i].reservado = "Aluno A";
             }
             i++;
           }
@@ -219,7 +219,7 @@ export class ReservaPage implements OnInit {
     let JsonInfo = {
       data: this.data_pesquisa,
       hora: hora,
-      usuario_id: logado.id, //MUDAR ESSA PORRA PARA VARIAVEL GLOBAL DO EVIRMONES
+      usuario_id: 1, //MUDAR ESSA PORRA PARA VARIAVEL GLOBAL DO EVIRMONES
       equipamento_id: this.selecionado
     };
     this.http

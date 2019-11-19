@@ -101,6 +101,12 @@
         <ion-label>{{ reserva.hora }}</ion-label>
         <ion-label>{{ reserva.reservado }}</ion-label>
         <ion-button
+          color="danger"
+          *ngIf="reserva.reservado && reserva.hora == '1PM'"
+        >
+          <ion-icon ios="ios-remove-circle" md="md-remove-circle"></ion-icon>
+        </ion-button>
+        <ion-button
           color="dark"
           *ngIf="!reserva.reservado"
           (click)="adcionarReserva(reserva.hora_compara)"
