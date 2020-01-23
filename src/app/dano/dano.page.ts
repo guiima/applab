@@ -100,7 +100,6 @@ export class DanoPage implements OnInit {
 
   resgistrarDano() {
     // console.log(this.texto);
-    // console.log(this.selecionado);
 
     let JsonInfo = {
       relatorio_dano: this.texto,
