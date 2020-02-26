@@ -37,6 +37,20 @@ export class LoginPage implements OnInit {
     await alert.present();
   }
 
+  async Aviso() {
+    let alert = await this.alert.create({
+      header: "Entre em contato com o administrador para redefinir a senha!!",
+      subHeader: "Obrigado!!",
+      buttons: [
+        {
+          text: "Ok",
+          role: "cancel"
+        }
+      ]
+    });
+    await alert.present();
+  }
+
   login() {
     this.auth = { email: this.email, senha: this.senha };
     this.http

@@ -21,12 +21,12 @@ export class RelatorioPage implements OnInit {
   public appPages = [
     {
       title: "Uso Reagente",
-      url: "/usoreagente",
+      url: "/reagente",
       icon: "flask"
     },
     {
       title: "Uso Meio de Cultivo",
-      url: "/usomeio",
+      url: "/meio",
       icon: "flask"
     },
     {
@@ -36,7 +36,7 @@ export class RelatorioPage implements OnInit {
     },
     {
       title: "Notificar Dano",
-      url: "/notificadano",
+      url: "/dano",
       icon: "alert"
     },
     {
@@ -59,12 +59,12 @@ export class RelatorioPage implements OnInit {
   public appPages2 = [
     {
       title: "Uso Reagente",
-      url: "/usoreagente",
+      url: "/reagente",
       icon: "flask"
     },
     {
       title: "Uso Meio de Cultivo",
-      url: "/usomeio",
+      url: "/meio",
       icon: "flask"
     },
     {
@@ -74,7 +74,7 @@ export class RelatorioPage implements OnInit {
     },
     {
       title: "Notificar Dano",
-      url: "/notificadano",
+      url: "/dano",
       icon: "alert"
     },
     {

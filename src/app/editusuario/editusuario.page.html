@@ -8,7 +8,7 @@
 </ion-header>
 <!-- ======================= daqui pra cima é menu ======================= -->
 
-<ion-content padding>
+<ion-content class="ion-padding">
   <!--AQUI EU MANDEI O LABEL DE CADASTRO TESTE!!!!!-->
 
   <ion-item>
@@ -25,6 +25,15 @@
     <ion-input
       placeholder="{{ ra }}"
       [(ngModel)]="new_ra"
+      type="text"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>ORIENTADOR:&nbsp;&nbsp;</ion-label>
+    <ion-input
+      placeholder="{{ orientador }}"
+      [(ngModel)]="new_orientador"
       type="text"
     ></ion-input>
   </ion-item>
@@ -59,25 +68,26 @@
   <ion-item>
     <ion-label>SENHA:&nbsp;&nbsp;</ion-label>
     <ion-input
-      placeholder="{{ senha }}"
+      placeholder="******"
       [(ngModel)]="new_senha"
       type="password"
     ></ion-input>
-    <ion-radio-group [(ngModel)]="new_autorizado">
-      <ion-item>
-        <ion-label>Autorizado</ion-label>
-        <ion-radio slot="start" value="true" checked></ion-radio>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>Desautorizado</ion-label>
-        <ion-radio slot="start" value="false"></ion-radio>
-      </ion-item>
-    </ion-radio-group>
   </ion-item>
 
+  <ion-radio-group [(ngModel)]="new_autorizado">
+    <ion-item>
+      <ion-label>Autorizado</ion-label>
+      <ion-radio slot="start" value="true" checked></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Desautorizado</ion-label>
+      <ion-radio slot="start" value="false"></ion-radio>
+    </ion-item>
+  </ion-radio-group>
+
   <!--AQUI EU MANDEI O BOTÃO TESTE!!!!!-->
-  <div class="spacer" style="width: 900px; height: 35.9896px;"></div>
+  <div class="spacer" style="width: 900px; height: 60.9896px;"></div>
 
   <ion-button color="dark" expand="full" (click)="atualiza()"
     >Concluir</ion-button

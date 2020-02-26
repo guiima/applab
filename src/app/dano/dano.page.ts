@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { acesso, SERVER_URL } from "src/environments/environment";
+import { acesso, SERVER_URL, logado } from "src/environments/environment";
 import { HttpClient } from "@angular/common/http";
 //
 @Component({
@@ -10,27 +10,28 @@ import { HttpClient } from "@angular/common/http";
 export class DanoPage implements OnInit {
   exibir: boolean = acesso.permitido;
   vidrarias: any;
+  vidraria: any;
   selecionado: any;
   texto: any;
   public appPages = [
     {
       title: "Uso Reagente",
-      url: "/usoreagente",
+      url: "/reagente",
       icon: "flask"
     },
     {
       title: "Uso Meio de Cultivo",
-      url: "/usomeio",
+      url: "/meio",
       icon: "flask"
     },
     {
       title: "Reservar Equipamento",
-      url: "/usoequip",
+      url: "/reserva",
       icon: "build"
     },
     {
       title: "Notificar Dano",
-      url: "/notificadano",
+      url: "/dano",
       icon: "alert"
     },
     {
@@ -53,22 +54,22 @@ export class DanoPage implements OnInit {
   public appPages2 = [
     {
       title: "Uso Reagente",
-      url: "/usoreagente",
+      url: "/reagente",
       icon: "flask"
     },
     {
       title: "Uso Meio de Cultivo",
-      url: "/usomeio",
+      url: "/meio",
       icon: "flask"
     },
     {
       title: "Reservar Equipamento",
-      url: "/usoequip",
+      url: "/reserva",
       icon: "build"
     },
     {
       title: "Notificar Dano",
-      url: "/notificadano",
+      url: "/dano",
       icon: "alert"
     },
     {
@@ -99,11 +100,12 @@ export class DanoPage implements OnInit {
   }
 
   resgistrarDano() {
-    // console.log(this.texto);
+    console.log(this.texto);
+    console.log("selecionado" + this.selecionado);
 
     let JsonInfo = {
       relatorio_dano: this.texto,
-      usuario_id: 1, //COLOAR O ID DO USUARIO LOGADO
+      usuario_id: logado.id, //COLOAR O ID DO USUARIO LOGADO
       vidraria_id: this.selecionado
     };
 
@@ -112,9 +114,31 @@ export class DanoPage implements OnInit {
       .toPromise()
       .then(res => {
         console.log(res);
+        //GET NA VIDRARIA PARA ATUALIZAR NO BANCO QNTD-1;
+        this.http
+          .get(SERVER_URL.base_url + "vidrarias/" + this.selecionado)
+          .toPromise()
+          .then(res => {
+            this.vidraria = res;
+          })
+          .catch(res => {
+            console.log(res);
+          });
       })
       .catch(res => {
         console.log(res);
       });
   }
+  // atualizaVidraria() {
+  //   this.http
+  //     //CONTINUAR DAQUI AMANHÃ!!
+  //     .put(SERVER_URL.base_url + "vidrarias/" + this.selecionado, JsonInfo)
+  //     .toPromise()
+  //     .then(res => {
+  //       console.log(res);
+  //     })
+  //     .catch(res => {
+  //       console.log(res);
+  //     });
+  // }
 }

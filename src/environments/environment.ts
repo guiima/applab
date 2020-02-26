@@ -10,7 +10,7 @@ export const environment = {
 
 export const logado: login = {
   id: -1,
-  tipo: "professor",
+  tipo: "aluno",
   autorizado: false
 };
 

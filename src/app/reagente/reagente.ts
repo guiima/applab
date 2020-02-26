@@ -3,5 +3,6 @@ export interface reagente {
   tipo: string;
   nomenclatura: string;
   quantidade: number;
+  qtd_minima: number;
   numeracao: string;
 }

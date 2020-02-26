@@ -1,3 +1,4 @@
+import { SERVER_URL } from "./../../environments/environment";
 import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Router, NavigationExtras } from "@angular/router";
@@ -14,17 +15,16 @@ export class ReagentePage implements OnInit {
   quantidade: number;
   reagentes: reagente[];
   tagreagente: string;
-  url: string = "http://localhost:3333/recursos";
   exibir: boolean;
   public appPages = [
     {
       title: "Uso Reagente",
-      url: "/usoreagente",
+      url: "/reagente",
       icon: "flask"
     },
     {
       title: "Uso Meio de Cultivo",
-      url: "/usomeio",
+      url: "/meio",
       icon: "flask"
     },
     {
@@ -34,7 +34,7 @@ export class ReagentePage implements OnInit {
     },
     {
       title: "Notificar Dano",
-      url: "/notificadano",
+      url: "/dano",
       icon: "alert"
     },
     {
@@ -56,12 +56,12 @@ export class ReagentePage implements OnInit {
   public appPages2 = [
     {
       title: "Uso Reagente",
-      url: "/usoreagente",
+      url: "/reagente",
       icon: "flask"
     },
     {
       title: "Uso Meio de Cultivo",
-      url: "/usomeio",
+      url: "/meio",
       icon: "flask"
     },
     {
@@ -71,7 +71,7 @@ export class ReagentePage implements OnInit {
     },
     {
       title: "Notificar Dano",
-      url: "/notificadano",
+      url: "/dano",
       icon: "alert"
     },
     {
@@ -92,7 +92,7 @@ export class ReagentePage implements OnInit {
   ngOnInit() {
     //comentaario
     return this.http
-      .get<reagente[]>(this.url)
+      .get<reagente[]>(SERVER_URL.base_url + "recursosreagente")
       .toPromise()
       .then(dados => {
         this.reagentes = dados;

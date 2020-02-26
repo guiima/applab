@@ -65,12 +65,13 @@
 </div>
 
 <ion-content class="ion-padding">
-  <!--LISTA PARA LIBERAR USUARIOS NOVOS-->
+
 
   <ion-list>
     <ion-item *ngFor="let reagente of reagentes">
-      <ion-label> {{ reagente.nomenclatura }}</ion-label>
-      <ion-label> {{ reagente.numeracao }}</ion-label>
+      <ion-label class="label"> {{ reagente.nomenclatura }}</ion-label>
+      <ion-label class="option"> {{ reagente.numeracao }}</ion-label>
+
       <ion-button color="dark" slot="end" (click)="selectItem(reagente.id)">
         <ion-icon ios="ios-clipboard" md="md-clipboard"></ion-icon>
       </ion-button>

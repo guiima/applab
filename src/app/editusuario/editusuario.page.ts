@@ -21,6 +21,7 @@ export class EditusuarioPage implements OnInit {
   ra: number;
   tipo: string;
   autorizado: boolean;
+  orientador: string;
 
   radio: any;
   json: any;
@@ -32,6 +33,7 @@ export class EditusuarioPage implements OnInit {
   new_email: any;
   new_senha: any;
   new_autorizado: any;
+  new_orientador: any;
 
   constructor(
     private http: HttpClient,
@@ -49,6 +51,7 @@ export class EditusuarioPage implements OnInit {
       this.ra = params.ra;
       this.tipo = params.tipo;
       this.autorizado = params.autorizado;
+      this.orientador = params.orientador;
     });
   }
 
@@ -73,6 +76,7 @@ export class EditusuarioPage implements OnInit {
       nome: this.nome,
       instituicao: this.instituicao,
       ra: this.ra,
+      orientador: this.orientador,
       email: this.email,
       senha: this.senha,
       curso: this.curso,
@@ -84,6 +88,9 @@ export class EditusuarioPage implements OnInit {
     }
     if (this.new_ra) {
       this.json.ra = this.new_ra;
+    }
+    if (this.new_orientador) {
+      this.json.ra = this.new_orientador;
     }
     if (this.new_instituicao) {
       this.json.instituicao = this.new_instituicao;
@@ -107,7 +114,7 @@ export class EditusuarioPage implements OnInit {
       .toPromise()
       .then(resposde => {
         this.confirmacaoAlert();
-        timer(2000).subscribe(() => {
+        timer(1000).subscribe(() => {
           this.router.navigate(["admin"]);
         });
       })

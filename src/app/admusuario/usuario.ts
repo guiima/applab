@@ -8,4 +8,5 @@ export interface usuario {
   curso: string;
   tipo: string;
   autorizado: boolean;
+  orientador: string;
 }

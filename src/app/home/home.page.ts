@@ -11,7 +11,7 @@ export class HomePage {
   public appPages = [
     {
       title: "Uso Reagente",
-      url: "/usoreagente",
+      url: "/reagente",
       icon: "flask"
     },
     {
@@ -26,7 +26,7 @@ export class HomePage {
     },
     {
       title: "Notificar Dano",
-      url: "/notificadano",
+      url: "/dano",
       icon: "alert"
     },
     {

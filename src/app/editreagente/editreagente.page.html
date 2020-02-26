@@ -1,0 +1,58 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/admreagente"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Gerenciar Recursos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label>NOMENCLATURA:&nbsp;&nbsp;</ion-label>
+    <ion-input
+      placeholder="{{ nomenclatura }}"
+      [(ngModel)]="new_nomenclatura"
+      type="text"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>NUMERACAO:&nbsp;&nbsp;</ion-label>
+    <ion-input
+      placeholder="{{ numeracao }}"
+      [(ngModel)]="new_numeracao"
+      type="text"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>QUANTIDADE:&nbsp;&nbsp;</ion-label>
+    <ion-input
+      placeholder="{{ quantidade }} ml ou g"
+      [(ngModel)]="new_quantidade"
+      type="text"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>QUANTIDADE MINIMA:&nbsp;&nbsp;</ion-label>
+    <ion-input
+      placeholder="{{ qtd_minima }}"
+      [(ngModel)]="new_qtd_minima"
+      type="text"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>ENTRADA DE:&nbsp;&nbsp;</ion-label>
+    <ion-input
+      placeholder="50.00 ml ou g"
+      [(ngModel)]="entrando"
+      type="text"
+    ></ion-input>
+  </ion-item>
+  <ion-button color="dark" expand="full" (click)="atualiza()"
+    >Concluir</ion-button
+  >
+</ion-content>

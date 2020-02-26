@@ -18,22 +18,22 @@ export class ReservaPage implements OnInit {
   public appPages = [
     {
       title: "Uso Reagente",
-      url: "/usoreagente",
+      url: "/reagente",
       icon: "flask"
     },
     {
       title: "Uso Meio de Cultivo",
-      url: "/usomeio",
+      url: "/meio",
       icon: "flask"
     },
     {
       title: "Reservar Equipamento",
-      url: "/usoequip",
+      url: "/reserva",
       icon: "build"
     },
     {
       title: "Notificar Dano",
-      url: "/notificadano",
+      url: "/dano",
       icon: "alert"
     },
     {
@@ -56,22 +56,22 @@ export class ReservaPage implements OnInit {
   public appPages2 = [
     {
       title: "Uso Reagente",
-      url: "/usoreagente",
+      url: "/reagente",
       icon: "flask"
     },
     {
       title: "Uso Meio de Cultivo",
-      url: "/usomeio",
+      url: "/meio",
       icon: "flask"
     },
     {
       title: "Reservar Equipamento",
-      url: "/usoequip",
+      url: "/reserva",
       icon: "build"
     },
     {
       title: "Notificar Dano",
-      url: "/notificadano",
+      url: "/dano",
       icon: "alert"
     },
     {
@@ -198,7 +198,6 @@ export class ReservaPage implements OnInit {
       .then(response => {
         this.exibirLista = true;
         reservas_dia = response;
-        //testeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
 
         for (let uma_reserva of reservas_dia) {
           let i = 0;

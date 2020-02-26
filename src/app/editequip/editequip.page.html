@@ -1,0 +1,37 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/admequip"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Gerenciar Equipamento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label>Nome:&nbsp;&nbsp;</ion-label>
+    <ion-input
+      placeholder="{{ nome }}"
+      [(ngModel)]="new_nome"
+      type="text"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Disponivel: </ion-label>
+    <ion-radio-group [(ngModel)]="disponivel">
+      <ion-item>
+        <ion-label>Disponivel</ion-label>
+        <ion-radio slot="start" value="true" checked></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Indisponivel</ion-label>
+        <ion-radio slot="start" value="false"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-item>
+  <ion-button color="dark" expand="full" (click)="atualiza()"
+    >Concluir</ion-button
+  >
+</ion-content>

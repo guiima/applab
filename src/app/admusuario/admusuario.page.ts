@@ -149,7 +149,8 @@ export class AdmusuarioPage implements OnInit {
         email: usuario.email,
         ra: usuario.ra,
         tipo: usuario.tipo,
-        autorizado: usuario.autorizado
+        autorizado: usuario.autorizado,
+        orientador: usuario.orientador
       }
     };
     this.router.navigate(["editusuario"], navigationExtras);
@@ -198,7 +199,7 @@ export class AdmusuarioPage implements OnInit {
   async mostrausuario(novos: any) {
     let alert = await this.alert.create({
       header: "NOME: " + novos.nome,
-      subHeader: "RA:" + novos.ra + " ORIENTADOR:",
+      subHeader: "RA:" + novos.ra + " ORIENTADOR:" + novos.orientador,
       buttons: [
         {
           text: "Voltar",

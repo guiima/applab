@@ -1,0 +1,36 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/admin"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Gerenciar Vidrarias</ion-title>
+  </ion-toolbar>
+</ion-header>
+<!-- ======================= daqui pra cima é menu ======================= -->
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item *ngFor="let vidraria of vidrarias">
+      <ion-label class="label">{{ vidraria.nome }}</ion-label>
+      <ion-label class="label1">{{ vidraria.quantidade }} un</ion-label>
+
+      <ion-button
+        color="dark"
+        class="option1"
+        slot="end"
+        (click)="AtualizaVidraria(vidraria)"
+      >
+        <ion-icon ios="ios-create" md="md-create" slot="end"></ion-icon>
+      </ion-button>
+
+      <ion-button
+        color="dark"
+        class="option"
+        slot="end"
+        (click)="alertExcluir(vidraria)"
+      >
+        <ion-icon ios="ios-trash" md="md-trash" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

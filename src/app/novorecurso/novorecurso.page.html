@@ -1,0 +1,145 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/admin"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Novo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label>Novo: </ion-label>
+    <ion-select [(ngModel)]="selecionado" cancelText="Cancelar">
+      <ion-select-option value="meio de cultivo"
+        >Meio de Cultivo</ion-select-option
+      >
+      <ion-select-option value="reagente">Reagente</ion-select-option>
+      <ion-select-option value="Vidraria">Vidraria</ion-select-option>
+      <ion-select-option value="Equipamento">Equipamento</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <div class="spacer" style="width: 900px; height: 35.9896px;"></div>
+  <!-- Menus daqui pra baixo -->
+
+  <div *ngIf="selecionado == 'Vidraria'">
+    <ion-item>
+      <ion-label>Nome Vidraria: </ion-label>
+      <ion-input
+        [(ngModel)]="nome"
+        placeholder="Becker 250ml"
+        type="text"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Quantidade em unidades: </ion-label>
+      <ion-input
+        [(ngModel)]="quantidade"
+        placeholder="20"
+        type="text"
+      ></ion-input>
+    </ion-item>
+    <ion-button color="dark" (click)="new_vidraria(nome, quantidade)"
+      >Concluir</ion-button
+    >
+  </div>
+
+  <div *ngIf="selecionado == 'reagente'">
+    <ion-item>
+      <ion-label>Nomenclatura: </ion-label>
+      <ion-input
+        [(ngModel)]="nome"
+        placeholder="Reagente X"
+        type="text"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Numeração: </ion-label>
+      <ion-input
+        [(ngModel)]="numeracao"
+        placeholder="1A"
+        type="text"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Quantidade ml: </ion-label>
+      <ion-input
+        [(ngModel)]="quantidade"
+        placeholder="20.321ml"
+        type="text"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Quantidade minima ml: </ion-label>
+      <ion-input
+        [(ngModel)]="qtd_minima"
+        placeholder="5.0ml"
+        type="text"
+      ></ion-input>
+    </ion-item>
+    <ion-button color="dark" (click)="new_recurso()">Concluir</ion-button>
+  </div>
+
+  <div *ngIf="selecionado == 'meio de cultivo'">
+    <ion-item>
+      <ion-label>Nomenclatura: </ion-label>
+      <ion-input
+        [(ngModel)]="nome"
+        placeholder="Meio de Cultivo X"
+        type="text"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Numeração: </ion-label>
+      <ion-input
+        [(ngModel)]="numeracao"
+        placeholder="2A"
+        type="text"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Quantidade ml: </ion-label>
+      <ion-input
+        [(ngModel)]="quantidade"
+        placeholder="20.321ml"
+        type="text"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Quantidade minima ml: </ion-label>
+      <ion-input
+        [(ngModel)]="qtd_minima"
+        placeholder="5.0ml"
+        type="text"
+      ></ion-input>
+    </ion-item>
+
+    <ion-button color="dark" (click)="new_recurso()">Concluir</ion-button>
+  </div>
+
+  <div *ngIf="selecionado == 'Equipamento'">
+    <ion-item>
+      <ion-label>Nome: </ion-label>
+      <ion-input
+        [(ngModel)]="nome"
+        placeholder="Shaker"
+        type="text"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Disponivel: </ion-label>
+      <ion-radio-group [(ngModel)]="disponivel">
+        <ion-item>
+          <ion-label>Disponivel</ion-label>
+          <ion-radio slot="start" value="true" checked></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Indisponivel</ion-label>
+          <ion-radio slot="start" value="false"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-item>
+    <ion-button color="dark" (click)="new_equipamento()">Concluir</ion-button>
+  </div>
+</ion-content>

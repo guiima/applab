@@ -1,0 +1,76 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/perfil"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Editar Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!--AQUI EU MANDEI O LABEL DE CADASTRO TESTE!!!!!-->
+
+  <ion-item>
+    <ion-label>Nome</ion-label>
+    <ion-input
+      placeholder="{{ nome }}"
+      [(ngModel)]="new_nome"
+      type="text"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Email</ion-label>
+    <ion-input
+      placeholder="{{ email }}"
+      [(ngModel)]="new_email"
+      type="text"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Senha</ion-label>
+    <ion-input
+      placeholder="{{ senha }}"
+      [(ngModel)]="new_senha"
+      type="text"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>RA</ion-label>
+    <ion-input
+      [(ngModel)]="new_ra"
+      placeholder="{{ ra }}"
+      type="text"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Orientador</ion-label>
+    <ion-input
+      placeholder="{{ orientador }}"
+      [(ngModel)]="new_orientador"
+      type="text"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Instituição</ion-label>
+    <ion-input
+      placeholder="{{ instituicao }}"
+      [(ngModel)]="new_instituicao"
+      type="text"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Curso</ion-label>
+    <ion-input
+      placeholder="{{ curso }}"
+      [(ngModel)]="new_curso"
+      type="text"
+    ></ion-input>
+  </ion-item>
+  <ion-button (click)="atualiza()">OK</ion-button>
+</ion-content>

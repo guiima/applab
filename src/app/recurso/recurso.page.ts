@@ -21,25 +21,26 @@ export class RecursoPage implements OnInit {
   numeracao: number;
   tipo: string;
   exibir: boolean = acesso.permitido;
+  resposta: any;
   public appPages = [
     {
       title: "Uso Reagente",
-      url: "/usoreagente",
+      url: "/reagente",
       icon: "flask"
     },
     {
       title: "Uso Meio de Cultivo",
-      url: "/usomeio",
+      url: "/meio",
       icon: "flask"
     },
     {
       title: "Reservar Equipamento",
-      url: "/usoequip",
+      url: "/reserva",
       icon: "build"
     },
     {
       title: "Notificar Dano",
-      url: "/notificadano",
+      url: "/dano",
       icon: "alert"
     },
     {
@@ -61,22 +62,22 @@ export class RecursoPage implements OnInit {
   public appPages2 = [
     {
       title: "Uso Reagente",
-      url: "/usoreagente",
+      url: "/reagente",
       icon: "flask"
     },
     {
       title: "Uso Meio de Cultivo",
-      url: "/usomeio",
+      url: "/meio",
       icon: "flask"
     },
     {
       title: "Reservar Equipamento",
-      url: "/usoequip",
+      url: "/reserva",
       icon: "build"
     },
     {
       title: "Notificar Dano",
-      url: "/notificadano",
+      url: "/dano",
       icon: "alert"
     },
     {
@@ -187,9 +188,12 @@ export class RecursoPage implements OnInit {
                 )
                 .toPromise()
                 .then(dados => {
+                  this.resposta = dados;
                   this.confirmacaoAlert();
                   timer(2000).subscribe(() => {
-                    this.router.navigate(["reagente"]);
+                    if (this.resposta.tipo == "reagente")
+                      this.router.navigate(["reagente"]);
+                    else this.router.navigate(["meio"]);
                   });
                 })
                 .catch(response => {
