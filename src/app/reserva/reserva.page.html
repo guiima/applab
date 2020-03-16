@@ -89,7 +89,7 @@
     >
     </ion-input>
     <ion-button color="dark" (click)="informarData()">
-      <ion-icon ios="ios-search" md="md-search"></ion-icon>
+      <ion-icon name="search-outline"></ion-icon>
     </ion-button>
   </ion-item>
 
@@ -104,14 +104,14 @@
           color="danger"
           *ngIf="reserva.reservado && reserva.hora == '1PM'"
         >
-          <ion-icon ios="ios-remove-circle" md="md-remove-circle"></ion-icon>
+          <ion-icon name="remove-circle-outline"></ion-icon>
         </ion-button>
         <ion-button
           color="dark"
           *ngIf="!reserva.reservado"
           (click)="adcionarReserva(reserva.hora_compara)"
         >
-          <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon>
+          <ion-icon name="add-circle-outline"></ion-icon>
         </ion-button>
       </ion-item>
     </div>
