@@ -98,11 +98,12 @@
   <ion-list *ngIf="exibirLista">
     <div *ngFor="let reserva of reservas">
       <ion-item>
-        <ion-label>{{ reserva.hora }}</ion-label>
-        <ion-label>{{ reserva.reservado }}</ion-label>
+        <ion-label id="hora">{{ reserva.hora }}</ion-label>
+        <ion-label id="reservado">{{ reserva.reservado }}</ion-label>
         <ion-button
           color="danger"
-          *ngIf="reserva.reservado && reserva.hora == '1PM'"
+          *ngIf="reserva.reservado !== ''"
+          (click)="removerReserva(reserva.hora_compara)"
         >
           <ion-icon name="remove-circle-outline"></ion-icon>
         </ion-button>

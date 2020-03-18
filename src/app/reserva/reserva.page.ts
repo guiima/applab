@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { acesso, SERVER_URL, logado } from "src/environments/environment";
 import { HttpClient } from "@angular/common/http";
+import { reserva } from "./reserva";
 
 @Component({
   selector: "app-reserva",
@@ -9,6 +10,7 @@ import { HttpClient } from "@angular/common/http";
 })
 export class ReservaPage implements OnInit {
   //HOJE SIM!
+  reserva_deletar: reserva[];
   exibir: boolean = acesso.permitido;
   data_pesquisa: Date;
   exibirLista: boolean = false;
@@ -138,7 +140,7 @@ export class ReservaPage implements OnInit {
       {
         hora: "1PM",
         hora_compara: "13:00:00",
-        reservado: "Aluno B"
+        reservado: ""
       },
       {
         hora: "2PM",
@@ -203,7 +205,8 @@ export class ReservaPage implements OnInit {
           let i = 0;
           for (let reserva of this.reservas) {
             if (uma_reserva.hora == reserva.hora_compara) {
-              this.reservas[i].reservado = "Aluno A";
+              console.log("oi", uma_reserva);
+              this.reservas[i].reservado = uma_reserva.usuario.nome;
             }
             i++;
           }
@@ -218,7 +221,7 @@ export class ReservaPage implements OnInit {
     let JsonInfo = {
       data: this.data_pesquisa,
       hora: hora,
-      usuario_id: 1, //MUDAR ESSA PORRA PARA VARIAVEL GLOBAL DO EVIRMONES
+      usuario_id: logado.id,
       equipamento_id: this.selecionado
     };
     this.http
@@ -230,6 +233,35 @@ export class ReservaPage implements OnInit {
       })
       .catch(response => {
         console.log(response);
+      });
+  }
+
+  removerReserva(hora) {
+    let JsonInfo = {
+      data: this.data_pesquisa,
+      hora: hora
+    };
+    this.http
+      .post<reserva[]>(SERVER_URL.base_url + "reservadatahora", JsonInfo)
+      .toPromise()
+      .then(response => {
+        this.reserva_deletar = response;
+        this.deletarReserva();
+      })
+      .catch(response => {
+        console.log(response);
+      });
+  }
+
+  deletarReserva() {
+    this.http
+      .delete(SERVER_URL.base_url + `reservas/${this.reserva_deletar[0].id}`)
+      .toPromise()
+      .then(response => {
+        this.informarData();
+      })
+      .catch(response => {
+        console.log("erro");
       });
   }
 }

@@ -59,6 +59,7 @@ export class LoginPage implements OnInit {
       .then(dados => {
         logado.id = dados.id;
         logado.tipo = dados.tipo;
+        logado.nome = dados.nome;
         if (dados.autorizado == false) {
           this.alerte = false;
           throw this.router.navigate(["precadastro"]);

@@ -11,7 +11,8 @@ export const environment = {
 export const logado: login = {
   id: -1,
   tipo: "aluno",
-  autorizado: false
+  autorizado: false,
+  nome: ""
 };
 
 export const acesso = {
