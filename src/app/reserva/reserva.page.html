@@ -102,7 +102,7 @@
         <ion-label id="reservado">{{ reserva.reservado }}</ion-label>
         <ion-button
           color="danger"
-          *ngIf="reserva.reservado !== ''"
+          *ngIf="reserva.usuario_id == logado"
           (click)="removerReserva(reserva.hora_compara)"
         >
           <ion-icon name="remove-circle-outline"></ion-icon>
