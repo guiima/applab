@@ -190,11 +190,7 @@ export class RecursoPage implements OnInit {
                 .then(dados => {
                   this.resposta = dados;
                   this.confirmacaoAlert();
-                  timer(2000).subscribe(() => {
-                    if (this.resposta.tipo == "reagente")
-                      this.router.navigate(["reagente"]);
-                    else this.router.navigate(["meio"]);
-                  });
+                  this.limpaInputs();
                 })
                 .catch(response => {
                   this.serverErrorAlert();
@@ -209,5 +205,9 @@ export class RecursoPage implements OnInit {
       ]
     });
     await alert.present();
+  }
+
+  limpaInputs() {
+    this.quantidade_consumida = null;
   }
 }
