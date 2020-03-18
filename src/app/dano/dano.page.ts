@@ -105,7 +105,7 @@ export class DanoPage implements OnInit {
 
     let JsonInfo = {
       relatorio_dano: this.texto,
-      usuario_id: logado.id, //COLOAR O ID DO USUARIO LOGADO
+      usuario_id: logado.id,
       vidraria_id: this.selecionado
     };
 
@@ -120,6 +120,10 @@ export class DanoPage implements OnInit {
           .toPromise()
           .then(res => {
             this.vidraria = res;
+            console.log(this.vidraria.quantidade);
+            this.vidraria.quantidade = this.vidraria.quantidade - 1;
+            console.log(this.vidraria.quantidade);
+            this.atualizaVidraria();
           })
           .catch(res => {
             console.log(res);
@@ -129,16 +133,15 @@ export class DanoPage implements OnInit {
         console.log(res);
       });
   }
-  // atualizaVidraria() {
-  //   this.http
-  //     //CONTINUAR DAQUI AMANHÃ!!
-  //     .put(SERVER_URL.base_url + "vidrarias/" + this.selecionado, JsonInfo)
-  //     .toPromise()
-  //     .then(res => {
-  //       console.log(res);
-  //     })
-  //     .catch(res => {
-  //       console.log(res);
-  //     });
-  // }
+  atualizaVidraria() {
+    this.http
+      .put(SERVER_URL.base_url + "vidrarias/" + this.selecionado, this.vidraria)
+      .toPromise()
+      .then(res => {
+        console.log(res);
+      })
+      .catch(res => {
+        console.log(res);
+      });
+  }
 }
