@@ -87,6 +87,7 @@ export class ReagentePage implements OnInit {
   ];
   constructor(private http: HttpClient, private router: Router) {
     this.exibir = acesso.permitido;
+    console.log("exibirrr", this.exibir);
   }
 
   ngOnInit() {
