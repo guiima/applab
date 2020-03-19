@@ -20,7 +20,7 @@ export class RecursoPage implements OnInit {
   nomenclatura: string;
   numeracao: number;
   tipo: string;
-  exibir: boolean = acesso.permitido;
+  exibir: boolean = JSON.parse(localStorage.getItem("adm"));
   resposta: any;
   public appPages = [
     {

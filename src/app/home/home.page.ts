@@ -45,6 +45,6 @@ export class HomePage {
       icon: ""
     }
   ];
-  tipo: boolean = acesso.permitido;
+  tipo: boolean = JSON.parse(localStorage.getItem("adm"));
   constructor(private menu: MenuController) {}
 }

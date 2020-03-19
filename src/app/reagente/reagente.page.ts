@@ -86,7 +86,7 @@ export class ReagentePage implements OnInit {
     }
   ];
   constructor(private http: HttpClient, private router: Router) {
-    this.exibir = acesso.permitido;
+    this.exibir = JSON.parse(localStorage.getItem("adm"));
     console.log("exibirrr", this.exibir);
   }
 

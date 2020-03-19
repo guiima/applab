@@ -12,7 +12,7 @@ import { NavigationExtras } from "@angular/router";
   styleUrls: ["./admusuario.page.scss"]
 })
 export class AdmusuarioPage implements OnInit {
-  exibir: boolean = acesso.permitido;
+  exibir: boolean = JSON.parse(localStorage.getItem("adm"));
   novos: any; // TALVEZ POR TIPO USUARIO
   cadastrados: any; // TALVEZ POR TIPO USUARIO
 

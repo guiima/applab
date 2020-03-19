@@ -4,7 +4,7 @@ import { SERVER_URL, logado } from "src/environments/environment";
 import { perfil } from "../perfil/perfil";
 import { AlertController } from "@ionic/angular";
 import { Router, ActivatedRoute } from "@angular/router";
-import { timer } from 'rxjs';
+import { timer } from "rxjs";
 
 @Component({
   selector: "app-editperfil",
@@ -37,8 +37,9 @@ export class EditperfilPage implements OnInit {
   ) {}
 
   ngOnInit() {
+    const user = JSON.parse(localStorage.getItem("usuario"));
     this.http
-      .get<perfil>(SERVER_URL.base_url + "usuarios/" + logado.id)
+      .get<perfil>(SERVER_URL.base_url + "usuarios/" + user.id)
       .toPromise()
       .then(response => {
         this.user = response;
@@ -70,38 +71,39 @@ export class EditperfilPage implements OnInit {
   }
 
   // ADAPTAR FUNÇÃO PARA USUARIO!!!
-   atualiza() {
-      let json = {
-        nome: this.nome,
-        instituicao: this.instituicao,
-        ra: this.ra,
-        orientador: this.orientador,
-        email: this.email,
-        senha: this.senha,
-        curso: this.curso,
-        tipo: logado.tipo,
-        autorizado: logado.autorizado
-      };
-      if (this.new_nome) {
-        json.nome = this.new_nome;
-      }
-      if (this.new_instituicao) {
-        json.instituicao = this.new_instituicao;
-      }
-      if (this.new_ra) {
-        json.ra = this.new_ra;
-      }
-      if (this.new_orientador) {
-        json.orientador = this.new_orientador;
-      }
-      if (this.new_senha) {
-        json.senha = this.new_senha;
-      }
-      if (this.new_curso) {
-        json.curso = this.new_curso;
-      }
+  atualiza() {
+    let json = {
+      nome: this.nome,
+      instituicao: this.instituicao,
+      ra: this.ra,
+      orientador: this.orientador,
+      email: this.email,
+      senha: this.senha,
+      curso: this.curso,
+      tipo: logado.tipo,
+      autorizado: logado.autorizado
+    };
+    if (this.new_nome) {
+      json.nome = this.new_nome;
+    }
+    if (this.new_instituicao) {
+      json.instituicao = this.new_instituicao;
+    }
+    if (this.new_ra) {
+      json.ra = this.new_ra;
+    }
+    if (this.new_orientador) {
+      json.orientador = this.new_orientador;
+    }
+    if (this.new_senha) {
+      json.senha = this.new_senha;
+    }
+    if (this.new_curso) {
+      json.curso = this.new_curso;
+    }
+    const user = JSON.parse(localStorage.getItem("usuario"));
     this.http
-      .put(SERVER_URL.base_url + "usuarios/" + logado.id, json)
+      .put(SERVER_URL.base_url + "usuarios/" + user.id, json)
       .toPromise()
       .then(resposde => {
         this.confirmacaoAlert();

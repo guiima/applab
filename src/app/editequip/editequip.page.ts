@@ -13,10 +13,11 @@ import { timer } from "rxjs";
 export class EditequipPage implements OnInit {
   id: any;
   nome: any;
-  // disponivel: any;
+  disponivel: any;
 
   new_nome: any;
-  // new_disponivel: any
+  new_disponivel: any;
+
   constructor(
     private http: HttpClient,
     private router: Router,
@@ -26,11 +27,17 @@ export class EditequipPage implements OnInit {
     this.route.queryParams.subscribe(params => {
       this.id = params.id;
       this.nome = params.nome;
-      //this.disponivel = params.disponivel;
+      this.disponivel = params.disponivel;
+      console.log("params", params);
     });
   }
 
   ngOnInit() {}
+
+  teste(event) {
+    this.disponivel = event.target.value;
+    // console.log(event.target.value);
+  }
 
   async confirmacaoAlert() {
     let alert = await this.alert.create({
@@ -47,21 +54,20 @@ export class EditequipPage implements OnInit {
   }
 
   atualiza() {
+    console.log("asasa", this.disponivel);
     let json = {
-      id: this.id,
-      nome: this.nome
-      // disponivel: this.disponivel
+      nome: this.nome,
+      disponivel: this.disponivel
     };
-    if (this.new_nome) {
-      json.nome = this.new_nome;
-    }
-    // if (this.new_disponivel) {
-    //   json.disponivel = this.new_disponivel;
-    // }
+
+    console.log("aow", json.disponivel);
+
     this.http
       .put(SERVER_URL.base_url + "equipamentos/" + this.id, json)
       .toPromise()
       .then(resposde => {
+        console.log(resposde);
+
         this.confirmacaoAlert();
         timer(1000).subscribe(() => {
           this.router.navigate(["admin"]);

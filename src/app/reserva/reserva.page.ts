@@ -12,9 +12,10 @@ import { AlertController } from "@ionic/angular";
 })
 export class ReservaPage implements OnInit {
   //HOJE SIM!
-  logado = logado.id;
+
+  logado = "";
   reserva_deletar: reserva[];
-  exibir: boolean = acesso.permitido;
+  exibir: boolean = JSON.parse(localStorage.getItem("adm"));
   data_pesquisa: Date;
   exibirLista: boolean = false;
   equipamentos: any;
@@ -96,6 +97,10 @@ export class ReservaPage implements OnInit {
   constructor(private http: HttpClient, private alert: AlertController) {}
 
   ngOnInit() {
+    const user = JSON.parse(localStorage.getItem("usuario"));
+
+    this.logado = user.id;
+
     this.http
       .get(SERVER_URL.base_url + "equipamentos")
       .toPromise()
@@ -236,6 +241,7 @@ export class ReservaPage implements OnInit {
         console.log(response);
       });
   }
+
   async Aviso() {
     let alert = await this.alert.create({
       header: "Já existe uma reserva nesse horario!",
@@ -268,10 +274,12 @@ export class ReservaPage implements OnInit {
   }
 
   efetuarReserva(hora) {
+    const user = JSON.parse(localStorage.getItem("usuario"));
+
     let JsonInfo = {
       data: this.data_pesquisa,
       hora: hora,
-      usuario_id: logado.id,
+      usuario_id: user.id,
       equipamento_id: this.selecionado
     };
     this.http

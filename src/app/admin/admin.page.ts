@@ -9,7 +9,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./admin.page.scss"]
 })
 export class AdminPage implements OnInit {
-  exibir: boolean = acesso.permitido;
+  exibir: boolean = JSON.parse(localStorage.getItem("adm"));
   novos: any; // TALVEZ POR TIPO USUARIO
   cadastrados: any; // TALVEZ POR TIPO USUARIO
 

@@ -8,7 +8,7 @@ import { HttpClient } from "@angular/common/http";
   styleUrls: ["./relatorio.page.scss"]
 })
 export class RelatorioPage implements OnInit {
-  exibir: boolean = acesso.permitido;
+  exibir: boolean = JSON.parse(localStorage.getItem("adm"));
   selecionado: any;
   data_inicio: any;
   data_final: any;

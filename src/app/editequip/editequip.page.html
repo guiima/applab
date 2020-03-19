@@ -19,7 +19,7 @@
 
   <ion-item>
     <ion-label>Disponivel: </ion-label>
-    <ion-radio-group [(ngModel)]="disponivel">
+    <ion-radio-group [(ngModel)]="disponivel" (ionChange)="teste($event)">
       <ion-item>
         <ion-label>Disponivel</ion-label>
         <ion-radio slot="start" value="true" checked></ion-radio>

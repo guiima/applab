@@ -16,6 +16,7 @@ export class LoginPage implements OnInit {
   senha: any;
   auth: any;
   alerte: boolean = true;
+
   constructor(
     private http: HttpClient,
     private router: Router,
@@ -57,16 +58,25 @@ export class LoginPage implements OnInit {
       .post<login>("http://localhost:3333/usuarioslogin", this.auth)
       .toPromise()
       .then(dados => {
-        logado.id = dados.id;
-        logado.tipo = dados.tipo;
-        logado.nome = dados.nome;
+        const user = {
+          id: dados.id,
+          tipo: dados.tipo,
+          nome: dados.nome
+        };
+
+        localStorage.setItem("usuario", JSON.stringify(user));
+
         if (dados.autorizado == false) {
           this.alerte = false;
           throw this.router.navigate(["precadastro"]);
         }
-        if (logado.tipo == "professor") {
-          acesso.permitido = true;
+
+        if (dados.tipo == "professor") {
+          localStorage.setItem("adm", JSON.stringify(true));
+        } else {
+          localStorage.setItem("adm", JSON.stringify(false));
         }
+
         this.router.navigate(["reagente"]);
       })
       .catch(response => {

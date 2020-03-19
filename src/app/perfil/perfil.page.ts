@@ -12,7 +12,7 @@ import { timer } from "rxjs";
   styleUrls: ["./perfil.page.scss"]
 })
 export class PerfilPage implements OnInit {
-  exibir: boolean = acesso.permitido;
+  exibir: boolean = JSON.parse(localStorage.getItem("adm"));
   user: perfil;
   nome: any;
   email: any;
@@ -101,8 +101,9 @@ export class PerfilPage implements OnInit {
   ) {}
 
   ngOnInit() {
+    const user = JSON.parse(localStorage.getItem("usuario"));
     this.http
-      .get<perfil>(SERVER_URL.base_url + "usuarios/" + logado.id)
+      .get<perfil>(SERVER_URL.base_url + "usuarios/" + user.id)
       .toPromise()
       .then(response => {
         this.user = response;
@@ -134,7 +135,8 @@ export class PerfilPage implements OnInit {
         {
           text: "Excluir",
           handler: () => {
-            this.ExcluirUsuario(logado.id);
+            const user = JSON.parse(localStorage.getItem("usuario"));
+            this.ExcluirUsuario(user.id);
           }
         }
       ]

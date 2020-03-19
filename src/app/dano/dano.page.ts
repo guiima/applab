@@ -8,7 +8,7 @@ import { HttpClient } from "@angular/common/http";
   styleUrls: ["./dano.page.scss"]
 })
 export class DanoPage implements OnInit {
-  exibir: boolean = acesso.permitido;
+  exibir: boolean = JSON.parse(localStorage.getItem("adm"));
   vidrarias: any;
   vidraria: any;
   selecionado: any;
@@ -103,9 +103,11 @@ export class DanoPage implements OnInit {
     console.log(this.texto);
     console.log("selecionado" + this.selecionado);
 
+    const user = JSON.parse(localStorage.getItem("usuario"));
+
     let JsonInfo = {
       relatorio_dano: this.texto,
-      usuario_id: logado.id,
+      usuario_id: user.id,
       vidraria_id: this.selecionado
     };
 

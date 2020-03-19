@@ -83,7 +83,7 @@ export class MeioPage implements OnInit {
   meios: any;
   exibir: boolean;
   constructor(private http: HttpClient, private router: Router) {
-    this.exibir = acesso.permitido;
+    this.exibir = JSON.parse(localStorage.getItem("adm"));
   }
 
   ngOnInit() {

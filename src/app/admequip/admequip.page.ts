@@ -23,7 +23,7 @@ export class AdmequipPage implements OnInit {
 
   atualizaLista() {
     this.http
-      .get(SERVER_URL.base_url + "equipamentos")
+      .get(SERVER_URL.base_url + "allequip")
       .toPromise()
       .then(dados => {
         this.equipamentos = dados;
@@ -37,8 +37,8 @@ export class AdmequipPage implements OnInit {
     let navigationExtras: NavigationExtras = {
       queryParams: {
         id: equipamento.id,
-        nome: equipamento.nome
-        //disponivel: equipamento.disponivel
+        nome: equipamento.nome,
+        disponivel: equipamento.disponivel
       }
     };
     this.router.navigate(["editequip"], navigationExtras);
